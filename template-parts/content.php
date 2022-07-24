@@ -29,6 +29,10 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
+
+	<h1 class="text-5xl">Content Only</h1>
+
+
 	<?php kr_post_thumbnail(); ?>
 
 	<div class="entry-content">

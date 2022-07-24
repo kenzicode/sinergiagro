@@ -12,7 +12,12 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<?php
+	<div class="relative">
+		
+		<div class="relative top-28 overflow-hidden pb-40">
+			<div class="max-w-7xl mx-auto">
+
+			<?php
 		while ( have_posts() ) :
 			the_post();
 
@@ -33,8 +38,23 @@ get_header();
 		endwhile; // End of the loop.
 		?>
 
+		
+
+			
+				
+			</div>
+		</div>
+
+		<div class="absolute h-[250px] w-full bg-[#fff6de] -z-10 top-0"></div>
+	</div>
+
+
+	<div class="pt-40">
+
+		
+</div>
+
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

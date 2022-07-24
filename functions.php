@@ -20,6 +20,14 @@ if ( ! defined( '_S_VERSION' ) ) {
  * as indicating support for post thumbnails.
  */
 function kr_setup() {
+
+	require get_template_directory() . '/inc/post-product.php';
+	require get_template_directory() . '/inc/post-productvariant.php';
+	require get_template_directory() . '/cmb-functions.php';
+	// require get_template_directory() . '/cmb-test.php';
+
+
+	
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
@@ -177,3 +185,33 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Gets a number of posts and displays them as options
+ * @param  array $query_args Optional. Overrides defaults.
+ * @return array             An array of options that matches the CMB2 options array
+ */
+function cmb2_get_productvariant( $query_args ) {
+
+	$args = wp_parse_args( $query_args, array(
+		'post_type'   => 'productvariant',
+	) );
+
+	$posts = get_posts( $args );
+
+	$post_options = array();
+	if ( $posts ) {
+		foreach ( $posts as $post ) {
+          $post_options[ $post->ID ] = $post->post_title;
+		}
+	}
+
+	return $post_options;
+}
+
+/**
+ * Gets 5 posts for your_post_type and displays them as options
+ * @return array An array of options that matches the CMB2 options array
+ */
+function cmb2_get_productvariant_options() {
+	return cmb2_get_productvariant( array( 'post_type' => 'productvariant' ) );
+}

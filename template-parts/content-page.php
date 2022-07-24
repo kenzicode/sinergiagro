@@ -14,6 +14,8 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
+	<h1 class="text-5xl">Content Page</h1>
+	
 	<?php kr_post_thumbnail(); ?>
 
 	<div class="entry-content">

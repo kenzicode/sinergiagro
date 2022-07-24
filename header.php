@@ -16,6 +16,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<script src="//unpkg.com/alpinejs" defer></script>
 
 	<?php wp_head(); ?>
 </head>
@@ -26,14 +27,14 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'kr' ); ?></a>
 
 	<header id="masthead" class="relative">
-		<div class="topheader bg-slate-200 text-gray-800 text-sm">
+		<!-- <div class="topheader bg-[#fafad7] text-gray-800 text-sm">
 			<div class="max-w-7xl mx-auto py-2">
 				<div class="flex justify-between items-center">
 					<p>email@corporate.com</p>
 					<p>telp +62 021 2299 212</p>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="mainheader bg-white">
 			<div class="max-w-7xl mx-auto py-6 items-center">
@@ -65,7 +66,7 @@
 							array(
 								'theme_location' => 'menu-1',
 								'menu_id'        => 'primary-menu',
-								'menu_class'	 => 'text-sm'
+								'menu_class'	 => 'text-base font-light'
 							)
 						);
 						?>

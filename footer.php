@@ -11,21 +11,45 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'kr' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'kr' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'kr' ), 'kr', '<a href="https://krockets.com">kenzicode</a>' );
-				?>
+	<footer id="colophon" class="bg-slate-50">
+		<div class="site-info mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="py-16 flex justify-between">
+
+				<nav id="site-navigation" class="main-navigation">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'kr' ); ?></button>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'menu-1',
+							'menu_id'        => 'primary-menu',
+							'menu_class'	 => 'text-base font-light'
+						)
+					);
+					?>
+				</nav><!-- #site-navigation -->
+				
+				<div>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+						<?php
+						/* translators: %s: CMS name, i.e. WordPress. */
+						printf( esc_html__( '© 2022 All Rights Reserved by %s', 'kr' ), 'SinergiAgro' );
+						?>
+					</a>
+					<span class="sep"> | </span>
+					<?php
+					/* translators: 1: Theme name, 2: Theme author. */
+					printf( esc_html__( 'Developed by %1$s.', 'kr' ), '<a href="https://krockets.com">krockets</a>' );
+					?>
+				</div>
+
+
+			</div>
+
+			
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
