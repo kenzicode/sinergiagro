@@ -31,17 +31,19 @@
 
                                 while ($prodData->have_posts()) : $prodData->the_post();
 
+                                $product_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'med-thumbnail', false, '');
+
                                 ?>
 
                                 <a class="shadow-lg bg-white rounded-xl p-10" href="<?php the_permalink(); ?>" >
 
-                                    <p class="text-[#B96D3C] font-semibold"><?php echo get_post_meta( get_the_ID(), 'variant_title', true ); ?></p>
+                                    <p class="text-[#B96D3C] font-normal"><?php echo get_post_meta( get_the_ID(), 'variant_title', true ); ?></p>
                                     <header class="entry-header">
                                         <?php the_title( '<h1 class="text-4xl font-bold mb-7 text-[#B96D3C]">', '</h1>' ); ?>
                                     </header><!-- .entry-header -->
 
-                                    <div class="bg-[#FFF5EE] h-[200px] w-full rounded-xl">
-                                        <?php kr_post_thumbnail(); ?>
+                                    <div class="bg-[#fdf9f7] w-full rounded-xl p-5">
+                                        <img src="<?php echo esc_url($product_img[0]); ?>" class="mx-auto" />
                                     </div>
 
                                 </a>

@@ -27,7 +27,8 @@ function kr_setup() {
 	// require get_template_directory() . '/cmb-test.php';
 
 
-	
+	add_image_size('med-thumbnail', 255, 170, true, array ('center', 'center'));
+	add_image_size('large-thumbnail', 400);
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.

@@ -53,9 +53,19 @@ get_header();
 
 									while ($otherProducts->have_posts()) : $otherProducts->the_post();
 
+									$product_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'med-thumbnail', false, '');
+
 								?>
-								<div class="bg-[#FFF5EE] h-[200px] w-full rounded-xl">
-									<a href="<?php the_permalink(); ?>"><?php kr_post_thumbnail(); ?></a>
+								<div class="bg-[#fdf9f7] w-full rounded-xl p-5 hover:opacity-95">
+									<a href="<?php the_permalink(); ?>" >
+											
+										<img src="<?php echo esc_url($product_img[0]); ?>" class="mx-auto" />
+
+										<header class="entry-header text-center my-5">
+                                            <?php the_title( '<h1 class="text-2xl font-bold text-[#B96D3C]">', '</h1>' ); ?>
+                                        </header><!-- .entry-header -->
+
+									</a>
 								</div>
 
 								<?php endwhile; ?>

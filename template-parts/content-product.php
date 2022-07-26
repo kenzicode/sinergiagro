@@ -2,8 +2,11 @@
 				<div class="flex justify-between space-x-10">
 					<div class="basis-1/2 bg-white relative rounded-xl">
 
-						<div class="bg-[#FFF5EE] h-[300px] w-full rounded-lg">
-                       	 	<?php kr_post_thumbnail(); ?>
+						<div class="bg-[#fdf9f7] h-[300px] w-full rounded-lg items-center border-gray-100 border border-[1px]">
+							<?php $product_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'large-thumbnail', false, ''); ?>
+
+							<img src="<?php echo esc_url($product_img[0]); ?>" class="mx-auto" />
+                       	 	
 						</div>
 					
                             <!-- <img src="http://localhost:8000/wp-content/uploads/2022/07/removal.ai_tmp-62c93604aa635.png" class="w-full p-10 mx-auto h-auto absolute inset-0" /> -->
@@ -22,7 +25,7 @@
 						</article>
 
 						<div class="flex justify-start items-center mt-24 space-x-4">
-							<a class="bg-orange-400 rounded-md px-5 py-3 text-white text-sm" href="#">Get Inquiry</a>
+							<a class="bg-orange-400 rounded-md px-5 py-3 text-white text-sm hover:text-white focus:text-white visited:text-white" href="#">Get Inquiry</a>
 							<span>or</span>
 							<button class="bg-transparent rounded-md px-5 py-3 border border-gray-500 text-sm">Download Brocure</button>
 						</div>
@@ -33,23 +36,18 @@
 				<div class="mt-20">
 					<h1 class="text-2xl font-bold mb-5 border-b-[1px] border-gray-200 pb-3">Product Variants</h1>
 
-
 						<div class="grid grid-cols-4 gap-6 mt-10">
 							<?php
 								$variants = get_post_meta( get_the_ID(), 'variant_group', true );
 
-								foreach ( (array) $variants as $key => $variant ) {
+								foreach ( (array) $variants as $key => $variant ) : ?>
 									
-									
-									echo '<div class="shadow-md p-4 rounded-lg">';
-									echo '<h1 class="text-base font-semibold text-gray-700 mb-2">' . ($variant['variant_title']) . '</h1>';
-									echo '<p class="text-base text-gray-500 font-light">' . ($variant['variant_detail']) .'</p>';
-
-									echo '</div>';
-
-
-								}
-							?>
+									<div class="shadow-md p-4 rounded-lg">
+										<h1 class="text-base font-semibold text-gray-700 mb-2"><?php echo ($variant['variant_title']); ?></h1>
+										<p class="text-base text-gray-500 font-light"><?php echo ($variant['variant_detail']); ?></p>
+									</div>
+								
+							<?php endforeach; ?>
 						</div>						
 					
 				</div>

@@ -101,12 +101,16 @@ get_header();
 
                                 while ($prodData->have_posts()) : $prodData->the_post();
 
+                                $product_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'med-thumbnail', false, '');
+
                                 ?>
 
                                     <a class="h-80 w-80 p-3" href="<?php the_permalink(); ?>" >
                                         <div class="bg-slate-50 w-full p-5 h-full rounded-lg border-t-[12px] border-l-[1px] border-r-[1px] border-b-[1px] border-t-orange-200">
-                                            <?php kr_post_thumbnail(); ?>
+                                            
 
+                                            <img src="<?php echo esc_url($product_img[0]); ?>" />
+                                            
                                             <header class="entry-header text-center mt-10">
                                                 <?php the_title( '<h1 class="text-2xl font-bold text-[#B96D3C]">', '</h1>' ); ?>
                                             </header><!-- .entry-header -->
