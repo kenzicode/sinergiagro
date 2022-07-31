@@ -17,9 +17,9 @@
                 </div>
             </div>
 			
-			<div class="relative top-28 overflow-hidden pb-40">
+			<div class="relative top-28 overflow-hidden pb-40 px-10 md:px-0">
 				<div class="max-w-7xl mx-auto">
-                    <div class="grid grid-cols-3 gap-10">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-10">
                         
                             <?php 
                                 $prodData = new WP_Query(array(

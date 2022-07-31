@@ -534,17 +534,17 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-  color: #4169e1;
+  color: #B96D3C;
 }
 
-a:visited {
-  color: #800080;
-}
+/* a:visited {
+  color: #a2541f;
+} */
 
 a:hover,
 a:focus,
 a:active {
-  color: #191970;
+  color: #a2541f;
 }
 
 a:focus {
@@ -558,7 +558,7 @@ a:active {
 
 /* Forms
 --------------------------------------------- */
-button,
+/* button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
@@ -635,7 +635,7 @@ select {
 }
 
 textarea {
-  width: 100%;
+  width: 100%; */
 }
 
 /*--------------------------------------------------------------
@@ -697,7 +697,16 @@ textarea {
 .main-navigation a {
   display: block;
   text-decoration: none;
+  color: rgb(51 65 85 / var(--tw-text-opacity));
+  padding: 5px 10px;
 }
+
+.main-navigation a:hover, .main-navigation a:active, .main-navigation a:focus, .main-navigation .current-menu-item a {
+  background-color: #edd5ad;
+  border-radius: 5px;
+}
+
+
 
 /* Small menu. */
 .menu-toggle,

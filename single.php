@@ -10,51 +10,59 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
 
-	<div class="relative">
+<?php
+	while ( have_posts() ) :
+	the_post(); 
+?>
+
+<div class="relative">
+	<div class="w-full bg-[#FFF5EE] -z-10 top-0">
+		<div class="max-w-7xl items-center mx-auto py-20">
+			<header class="entry-header">
+				<?php the_title( '<h1 class="text-4xl font-bold text-center text-[#B96D3C]">', '</h1>' ); ?>
+			</header><!-- .entry-header -->
+		</div>
+	</div>
+	
+	<div class="relative top-7 md:top-16 overflow-hidden pb-12 md:pb-40 px-10 md:px-0">
+		<div class="max-w-7xl mx-auto">
+			
 		
-		<div class="relative top-28 overflow-hidden pb-40">
-			<div class="max-w-7xl mx-auto">
 
-			<?php
-		while ( have_posts() ) :
-			the_post();
+			<article class="prose prose-base text-gray-600 mx-auto">
+				<div class=" mb-4 text-gray-400 italic">
+					<?php
+						kr_posted_on();
+					?>
+				</div><!-- .entry-meta -->
 
-			get_template_part( 'template-parts/content', get_post_type() );
+				<?php the_content(); ?>
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'kr' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'kr' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+				<div class="bg-slate-100 p-10 rounded-lg mt-20">
+				<?php the_post_navigation(
+					array(
+						'prev_text' => '<span class="block no-underline">' . esc_html__( 'Previous Post:', 'kr' ) . '</span> <span class="nav-title">%title</span>',
+						'next_text' => '<span class="block">' . esc_html__( 'Next Post:', 'kr' ) . '</span> <span class="nav-title">%title</span>',
+					)
+				); ?>
+				</div>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-		
+			</article>
 
 			
-				
-			</div>
-		</div>
 
-		<div class="absolute h-[250px] w-full bg-[#fff6de] -z-10 top-0"></div>
+		</div>
 	</div>
 
-
-	<div class="pt-40">
-
-		
 </div>
 
-	</main><!-- #main -->
+<?php endwhile; // End of the loop.
+			?>
+
+
+</main><!-- #main -->
 
 <?php
 get_footer();

@@ -11,11 +11,11 @@
 
 ?>
 
-	<footer id="colophon" class="bg-slate-50">
+	<footer id="colophon" class="bg-slate-50 md:mt-40">
 		<div class="site-info mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="py-16 flex justify-between">
 
-				<nav id="site-navigation" class="main-navigation">
+				<nav id="site-navigation" class="main-navigation hidden md:block">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'kr' ); ?></button>
 					<?php
 					wp_nav_menu(

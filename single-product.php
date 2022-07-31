@@ -14,9 +14,9 @@ get_header();
 
 		<div class="relative">
 			
-			<div class="relative top-28 overflow-hidden pb-40">
+			<div class="relative top-10 md:top-28 overflow-hidden pb-40">
 				<div class="max-w-7xl mx-auto">
-					<div class="shadow-lg bg-white rounded-xl p-20">
+					<div class="shadow-lg bg-white rounded-xl md:p-20">
 						<?php
 							while ( have_posts() ) :
 								the_post();
@@ -39,10 +39,10 @@ get_header();
 						?>
 						
 
-						<div class="mt-20 mb-10">
+						<div class="mt-20 md:mb-10 pb-10 md:pb-0 px-10 md:px-0">
 							<h1 class="text-2xl font-bold mb-5">Other Products</h1>
 
-							<div class="grid grid-cols-3 gap-5">
+							<div class="grid grid-cols-2 md:grid-cols-3 gap-5">
 								<?php
 									$otherProducts = new WP_Query(array(
 										'post_type' => 'product',
@@ -68,7 +68,7 @@ get_header();
 									</a>
 								</div>
 
-								<?php endwhile; ?>
+								<?php endwhile; wp_reset_postdata(); ?>
 							</div>
 						</div>
 
@@ -79,7 +79,7 @@ get_header();
 				</div>
 			</div>
 
-			<div class="absolute h-[450px] w-full bg-[#FFF5EE] -z-10 top-0"></div>
+			<div class="absolute h-[0px] md:h-[450px] w-full bg-[#FFF5EE] -z-10 top-0"></div>
 		</div>
 
 

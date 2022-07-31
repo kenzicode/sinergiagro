@@ -22,7 +22,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 function kr_setup() {
 
 	require get_template_directory() . '/inc/post-product.php';
-	require get_template_directory() . '/inc/post-productvariant.php';
+	// require get_template_directory() . '/inc/post-productvariant.php';
+	require get_template_directory() . '/inc/post-blog.php';
 	require get_template_directory() . '/cmb-functions.php';
 	// require get_template_directory() . '/cmb-test.php';
 
