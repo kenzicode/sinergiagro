@@ -22,10 +22,10 @@
                 </div>
             </div>
 			
-            <div class="relative top-28 overflow-hidden pb-40 px-10 md:px-0">
+            <div class="relative top-28 overflow-hidden pb-40 px-2 md:px-0">
 				<div class="max-w-7xl mx-auto">
 
-                <div class="grid grid-cols-2 md:grid-cols-2 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         
                     <?php 
                         $blogData = new WP_Query(array(
@@ -40,12 +40,12 @@
 
                         ?>
                         
-                        <div class="shadow-lg bg-white rounded-xl p-10">
+                        <div class="shadow-lg bg-white rounded-xl p-5 md:p-10">
             
                             <a href="<?php the_permalink(); ?>" >
     
                                 <header class="entry-header">
-                                    <?php the_title( '<h1 class="text-3xl font-bold mb-7 text-[#B96D3C] hover:text-opacity-75">', '</h1>' ); ?>
+                                    <?php the_title( '<h1 class="text-2xl md:text-3xl font-bold mb-7 text-[#B96D3C] hover:text-opacity-75">', '</h1>' ); ?>
                                 </header><!-- .entry-header -->
 
                             </a>

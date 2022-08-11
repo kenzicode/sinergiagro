@@ -973,3 +973,14 @@ textarea {
   margin-right: auto;
   margin-bottom: 1.5em;
 }
+
+
+.tab-button {
+  background-color: #dddddd;
+  color: #222222;
+}
+
+.tab-button.active{
+  background-color: #555555;
+  color: #ffffff;
+}

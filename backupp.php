@@ -102,3 +102,81 @@ get_header();
 
 <?php
 get_footer();
+
+
+
+
+<?php 
+                $args = array('taxonomy' => 'type');
+                $terms = get_terms('type', $args);
+                $count = count($terms);
+                $i = 0;
+                
+                if ($count > 0) : ?>
+
+                <?php    foreach ($terms as $term) : ?>
+                    
+                    <?php $term_link = get_term_link($term); ?>
+
+                    <?php $i++; ?>
+
+                    <a href="<?php echo esc_url($term_link); ?>"><?php echo $term->name; ?></a>
+
+                <?php endforeach; ?> <?php endif; ?>
+			
+			<div class="relative top-28 overflow-hidden pb-40 px-10 md:px-0">
+
+				<div class="max-w-7xl mx-auto">
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        
+                            <?php 
+                                $prodData = new WP_Query(array(
+                                    'post_type' => 'product',
+                                    'orderby'   => 'title',
+                                    'order' => 'ASC',
+                                    'posts_per_page' => '-1',
+                                    'tax_query' => array(
+                                        array (
+                                            'taxonomy' => 'type',
+                                            'field' => 'slug',
+                                            'terms' => 'Casava'
+                                        )
+                                    )
+                                ));
+
+                                while ($prodData->have_posts()) : $prodData->the_post();
+
+                                $product_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'med-thumbnail', false, '');
+
+                                ?>
+
+                                <a class="shadow-lg bg-white rounded-xl p-10" href="<?php the_permalink(); ?>" >
+
+                                    <p class="text-[#B96D3C] font-normal"><?php echo get_post_meta( get_the_ID(), 'variant_title', true ); ?></p>
+                                    <header class="entry-header">
+                                        <?php the_title( '<h1 class="text-4xl font-bold mb-7 text-[#B96D3C]">', '</h1>' ); ?>
+                                    </header><!-- .entry-header -->
+
+                                    <div class="bg-[#fdf9f7] w-full rounded-xl p-5">
+                                        <img src="<?php echo esc_url($product_img[0]); ?>" class="mx-auto" />
+                                    </div>
+
+                                    <article class="prose prose-base text-gray-600 font-light mt-10 text-justify">
+                                        <?php the_excerpt(); ?> 
+                                    </article>
+
+                                </a>
+
+                            <?php endwhile; ?>
+
+                            <?php wp_reset_postdata(); ?>
+                    </div>
+
+				</div>
+
+			</div>
+
+
+
+			

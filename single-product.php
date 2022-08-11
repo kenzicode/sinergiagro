@@ -38,11 +38,12 @@ get_header();
 							endwhile; // End of the loop.
 						?>
 						
-
+<?php /*
+						
 						<div class="mt-20 md:mb-10 pb-10 md:pb-0 px-10 md:px-0">
 							<h1 class="text-2xl font-bold mb-5">Other Products</h1>
 
-							<div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+							<div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 								<?php
 									$otherProducts = new WP_Query(array(
 										'post_type' => 'product',
@@ -72,8 +73,7 @@ get_header();
 							</div>
 						</div>
 
-
-
+*/ ?>
 
 					</div>
 				</div>

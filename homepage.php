@@ -9,17 +9,17 @@ get_header();
 
 
 <main id="content" class="relative">
-
+                    
     <!-- Hero -->
     <div class="relative md:mb-32">
 
         <div class="relative"><!-- Hero -->
-            <div class="bg-[#FFF5EE] h-[850px] md:h-[709px] p-10 md:p-0">
+            <div class="bg-[#FFF5EE] h-[680px] md:h-[709px] p-10 md:p-0">
                 <div class="max-w-7xl mx-auto">
                     <div class="grid grid-cols-1 items-center pt-0 md:pt-20 pb-5">
                         <div class="hero space-y-7  pt-5 md:pt-20 px-5 md:px-0 pb-5 z-20 md:w-3/5 bg-white/60 md:bg-transparent">
-                            <h1 class="text-6xl md:text-7xl font-bold text-[#B96D3C]">Synergising Agro Outputs Ecosystem</h1>
-                            <h5 class="text-2xl font-light text-[#B96D3C]">Uplifting Farmers & Connecting to Commerce</h5>
+                            <h1 class="text-5xl md:text-7xl font-bold text-[#B96D3C]">Synergising Agro Outputs Ecosystem</h1>
+                            <h5 class="text-xl md:text-2xl font-light text-[#B96D3C]">Uplifting Farmers & Connecting to Commerce</h5>
 
                             
                                 <a href="#productsection" class="py-3 px-7 text-white rounded-md bg-[#F18638] inline-flex items-center space-x-4 justify-start hover:text-white hover:bg-opacity-80 visited:text-white focus:text-white">
@@ -36,11 +36,11 @@ get_header();
 
                     <div class="grid grid-cols-3 mt-10 md:mt-0">
                         <div></div>
-                        <div class="col-span-3 md:col-span-2 h-28 w-full z-20">
+                        <!-- <div class="col-span-3 md:col-span-2 h-28 w-full z-20">
                             <div class="grid md:grid-cols-2 gap-16">
                                 <div class="bg-white rounded-xl shadow-xl flex items-center justify-between">
-                                    <div class="relative w-[350px] h-auto">
-                                        <img src="http://localhost:8000/wp-content/uploads/2022/07/removal.ai_tmp-62c931f780028.png" class="absolute inset-0 -left-10 -top-12" />
+                                    <div class="w-[180px] md:w-[350px] h-auto">
+                                        <img src="http://localhost:8000/wp-content/uploads/2022/07/removal.ai_tmp-62c931f780028.png" class="inset-0 left-0 top-0 p-5" />
                                     </div>
                                     <div class="pr-2 w-full py-4">
                                         <h3 class="text-xl font-bold">Beetlenut</h3>
@@ -48,19 +48,57 @@ get_header();
                                         <a href="#" class="text-sm text-slate-400">Learn more</a>
                                     </div>
                                 </div>
+
                                 <div class="bg-white rounded-xl shadow-xl flex items-center justify-between">
-                                    <div class="relative w-[350px] h-auto">
-                                        <img src="http://localhost:8000/wp-content/uploads/2022/07/clover.png" class="absolute inset-0 -left-10 -top-12" />
+                                    <div class="w-[180px] md:w-[350px] h-auto">
+                                        <img src="http://localhost:8000/wp-content/uploads/2022/07/removal.ai_tmp-62c931f780028.png" class="inset-0 left-0 top-0 p-5" />
                                     </div>
                                     <div class="pr-2 w-full py-4">
-                                        <h3 class="text-xl font-bold">Clover</h3>
+                                        <h3 class="text-xl font-bold">Beetlenut</h3>
                                         <h5 class="text-base text-slate-600 font-light mb-5">Origin from Indonesia</h5>
                                         <a href="#" class="text-sm text-slate-400">Learn more</a>
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+
+                        <div class="col-span-3 md:col-span-2 h-32 w-full z-20 swiper mySwiper">
+                            <div class="swiper-wrapper">
+
+                                <?php 
+                                    $prodData = new WP_Query(array(
+                                        'post_type' => 'product',
+                                        'orderby'   => 'rand',
+                                        'order' => 'ASC',
+                                        'posts_per_page' => '9',       
+                                    ));
+
+                                    while ($prodData->have_posts()) : $prodData->the_post();
+
+                                    $product_img = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'med-thumbnail', false, '');
+
+                                ?>
+
+                                <div class="bg-white rounded-xl shadow-xl flex items-center justify-between swiper-slide">
+                                    <div class="w-[180px] md:w-[350px] h-auto">
+                                        <img src="<?php echo esc_url($product_img[0]); ?>" class="inset-0 left-0 top-0 p-5" />
+                                    </div>
+                                    <div class="pr-2 w-full py-4">
+                                        <?php the_title( '<h1 class="text-xl font-bold text-[#B96D3C]">', '</h1>' ); ?>
+                                        
+                                        <h5 class="text-base text-slate-600 font-light mb-5">Origin from Indonesia</h5>
+                                        <a href="<?php the_permalink(); ?>" class="text-sm text-slate-400">Learn more</a>
+                                    </div>
+                                </div>
+
+                                <?php endwhile; ?>
+                              
+                            </div>
                         </div>
+
+
                     </div>
+
                 </div>
 
             </div>
@@ -69,6 +107,9 @@ get_header();
             </div>
            
         </div><!-- Hero End -->
+
+       
+
         
             <div class="relative">
                 <div class="max-w-7xl mx-auto">
@@ -96,13 +137,14 @@ get_header();
                             </div>
 
                             <div class="col-span-3 bg-[#FCFCFA] p-1">
-                                <div class="grid grid-cols-2 md:grid-cols-3">
+                                <div class="grid grid-cols-1 md:grid-cols-3">
 
                                 <?php 
                                 $prodData = new WP_Query(array(
                                     'post_type' => 'product',
                                     'orderby'   => 'rand',
-                                    'post_per_page' => '-1',
+                                    'order' => 'ASC',
+                                    'posts_per_page' => '9',
                                     
                                 ));
 
@@ -113,10 +155,10 @@ get_header();
                                 ?>
 
                                     <a class="md:h-80 md:w-80 p-3" href="<?php the_permalink(); ?>" >
-                                        <div class="bg-slate-50 w-full p-5 h-full rounded-lg border-t-[12px] border-l-[1px] border-r-[1px] border-b-[1px] border-t-orange-200">
+                                        <div class="bg-white w-full p-5 h-full rounded-lg border-t-[12px] border-l-[1px] border-r-[1px] border-b-[1px] border-t-orange-200">
                                             
 
-                                            <img src="<?php echo esc_url($product_img[0]); ?>" />
+                                            <img class="mx-auto" src="<?php echo esc_url($product_img[0]); ?>" />
                                             
                                             <header class="entry-header text-center mt-10">
                                                 <?php the_title( '<h1 class="text-2xl font-bold text-[#B96D3C]">', '</h1>' ); ?>
@@ -159,20 +201,20 @@ get_header();
             <div class="relative">
                 <div class="max-w-7xl mx-auto">
                     <div class="bg-orange-300 rounded-lg">    
-                        <div class="p-10 py-14">
+                        <div class="px-10 md:px-24 py-14">
                             <div class="md:flex justify-between items-center">
                                 <div class="md:w-4/5">
                                     <h3 class="text-4xl font-bold mb-5">
                                         Want to collaborate with us?
                                     </h3>
                                     <h5 class="text-xl font-light">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                    For more information, please contact our sales experts. <br> We look forward to hearing from you. 
                                     </h5>
                                 </div>
 
-                                <div class="flex-col space-y-5 md:w-1/5 mt-10 md:mt-0">
-                                    <button class="bg-white px-7 py-4 text-slate-600 text-lg rounded-lg w-full hover:bg-slate-50">Contact Us</button>
-                                    <button class="bg-transparent border-1 border-white px-7 py-4 text-white hover:text-slate-50 text-lg rounded-lg w-full">See Our Company</button>
+                                <div class="flex flex-col space-y-5 md:w-1/5 mt-10 md:mt-0">
+                                    <a href="" class="bg-white px-7 py-4 text-slate-600 text-lg rounded-lg w-full hover:bg-slate-50 text-center">Contact Us</a>
+                                    <a href="" class="bg-transparent border-1 border-white px-7 py-4 text-white hover:text-slate-50 text-lg rounded-lg w-full text-center">See Our Company</a>
                                 </div>
                             </div>
                         </div>
